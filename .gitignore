@@ -1,0 +1,30 @@
+# Entorno Virtual
+venv_drf/
+env/
+
+# Archivos de compilación de Python
+*.pyc
+*.pyo
+__pycache__/
+
+# Archivos de base de datos SQLite
+db.sqlite3
+
+# Migraciones
+*/migrations/*.py
+*/migrations/*.pyc
+
+# Archivos de caché
+.cache/
+.coverage
+*.cover
+
+# Archivos de configuración de entorno
+.env
+
+# Archivos de configuración del editor/IDE
+.vscode/
+.idea/
+
+# Archivos de logs
+*.log
