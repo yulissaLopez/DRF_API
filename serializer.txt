@@ -1,0 +1,9 @@
+LOS SERIALIZERS
+-----------------------------------------------------------------------------------------
+Serializadores: Convierten datos entre formatos complejos (como instancias de modelos) y formatos de intercambio de datos (como JSON).
+-----------------------------------------------------------------------------------------
+Validación: Validan datos antes de guardarlos en la base de datos.
+-----------------------------------------------------------------------------------------
+Transformación: Permiten aplicar lógica personalizada y transformar datos.
+-----------------------------------------------------------------------------------------
+Interoperabilidad: Facilitan el intercambio de datos entre sistemas y servicios.

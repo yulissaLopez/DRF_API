@@ -8,9 +8,9 @@ get_response = requests.get(endpoint, params = {"abc" : 123}, json = { "saludo" 
 #print(get_response.text) # print the raw text response
 
 #JavaScript Object Notation (JSON) - pyhton Dict
-#print(get_response.json())
+print(get_response.json())
 
 #Satus Code
 #print(get_response.status_code)
 
-print(get_response.url)
+#print(get_response.url)
