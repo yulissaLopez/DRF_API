@@ -6,7 +6,6 @@ from products.serializers import ProductSerializer
 
 
 @api_view (["GET"]) # defino que metodos http quiero permitir GET, POST ..
-
 def api_home(request):
     """ DRF API View """
     """
@@ -26,6 +25,21 @@ def api_home(request):
     if instance:
         data = ProductSerializer(instance).data
         print(data)
-        #1:14:44
     return Response(data)
+
+@api_view(["POST"]) # Esta view solo permite metodos post
+def api_add(request):
+    # request.data es un diccionario que contieme los datos enviados en la solicitud, los cuales provienen del cuerpo de la solictud
+
+    # Al pasarlos a ProductSerializer le estoy diciendo que tome esos datos y los deserialice y valide para crear un objeto product
+    serializer = ProductSerializer(data=request.data)
     
+    if serializer.is_valid(): # Verifica si los datos son validos
+        instance = serializer.save() # Guarda el nuevo objeto Product en la BD
+        print(instance)
+        data = serializer.data
+        return Response(data)
+    else: 
+        print(serializer.errors) # Si no son válidos, devuelve los errores
+
+    #1:20:32
