@@ -34,7 +34,7 @@ def api_add(request):
     # Al pasarlos a ProductSerializer le estoy diciendo que tome esos datos y los deserialice y valide para crear un objeto product
     serializer = ProductSerializer(data=request.data)
     
-    if serializer.is_valid(): # Verifica si los datos son validos
+    if serializer.is_valid(raise_exception=True): # Verifica si los datos son validos
         instance = serializer.save() # Guarda el nuevo objeto Product en la BD
         print(instance)
         data = serializer.data
@@ -42,4 +42,4 @@ def api_add(request):
     else: 
         print(serializer.errors) # Si no son válidos, devuelve los errores
 
-    #1:20:32
+    #1:27:06

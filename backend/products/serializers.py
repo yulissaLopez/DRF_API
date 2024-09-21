@@ -11,15 +11,28 @@ from .models import Product
     ProductSerializer actúa como una clase que sabe cómo convertir los datos JSON a una instancia del modelo Product, y también cómo validar esos datos.
 """
 class ProductSerializer(serializers.ModelSerializer):
+    # This ia a field that does not exits in the model but its calculated in the get_my_discount method
+    my_discount = serializers.SerializerMethodField(read_only=True)
     # class meta define el modelo que se esta serializando
     class Meta:
         model = Product
         # define los campos que deben incluirse
+        """
+            The my_discount field will be included in the serialized data when you retrieve or list products, but you cannot send a value for my_discount when creating or updating a product, as it is read-only.
+        """
         fields = [
             'id', 
             'title', 
             'content', 
             'price',
             'sale_price',
-            'get_discount'
+            'my_discount'
             ]
+
+    """
+        This method receives the model instance (obj), and it calculates and returns a discount based on the product’s price.
+    """
+    def get_my_discount(self, obj):
+        if obj.price > 100:
+            return obj.price * 0.1
+        return 0
